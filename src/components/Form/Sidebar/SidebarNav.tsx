@@ -8,13 +8,13 @@ export function SidebarNav (){
    <Stack spacing="12" align="flex-start">
      <NavSection title="Geral">
        {/*colei os links no nav link e o children importa os links para o NavSection*/}{" "}
-       <NavLink icon={RiDashboardLine}>Dashboard</NavLink>
-       <NavLink icon={RiContactsLine}>Usuários</NavLink>
+       <NavLink icon={RiDashboardLine} href='/dashboard'>Dashboard</NavLink>
+       <NavLink icon={RiContactsLine} href='/users'>Usuários</NavLink>
      </NavSection>
 
      <NavSection title="Automação">
-       <NavLink icon={RiGitMergeLine}>Automação</NavLink>
-       <NavLink icon={RiInputMethodLine}>Formulário</NavLink>
+       <NavLink icon={RiGitMergeLine} href='/forms'>Automação</NavLink>
+       <NavLink icon={RiInputMethodLine} href='/automation'>Formulário</NavLink>
      </NavSection>
    </Stack>
  )

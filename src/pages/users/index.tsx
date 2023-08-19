@@ -18,6 +18,7 @@ import {
 } from "@chakra-ui/react"
 import { RiAddLine, RiPencilLine } from "react-icons/ri";
 import { Pagination } from "@/components/Form/Pagination";
+import Link from "next/link";
 
 
 
@@ -37,15 +38,17 @@ export default function UserList() {
              Usuários
            </Heading>
 
-           <Button
-             as="a"
-             size="sm"
-             fontSize="sm"
-             colorScheme="pink"
-             leftIcon={<Icon as={RiAddLine} fontSize="20" />}
-           >
-             Criar novo
-           </Button>
+           <Link href='/users/create' passHref>
+             <Button
+               as="a"
+               size="sm"
+               fontSize="sm"
+               colorScheme="pink"
+               leftIcon={<Icon as={RiAddLine} fontSize="20" />}
+             >
+               Criar novo
+             </Button>
+           </Link>
          </Flex>
          <Table colorScheme="whiteAlpha">
            <Thead>
@@ -55,7 +58,6 @@ export default function UserList() {
                </Th>
                <Th>Usuário</Th>
                {isWideVersion && <Th>Data de cadastro</Th>}
-               
              </Tr>
            </Thead>
            <Tbody>

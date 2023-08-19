@@ -11,6 +11,7 @@ import {
   Button,
 } from "@chakra-ui/react"
 import { Input } from "@/components/Form/Input"
+import Link from "next/link"
 
 
 
@@ -28,14 +29,14 @@ export default function UserCreate() {
           <Divider my="6" borderColor="gray.700" />
 
           <VStack spacing="8">
-            <SimpleGrid minChildWidth="240px" spacing="8" w="100%">
+            <SimpleGrid minChildWidth="240px" spacing={["6", "8"]} w="100%">
               <Input name="name" label="Nome completo" />
               <Input name="email" type="email" label="E-mail " />
             </SimpleGrid>
           </VStack>
 
           <VStack spacing="8">
-            <SimpleGrid minChildWidth="240px" spacing="8" w="100%">
+            <SimpleGrid minChildWidth="240px" spacing={["6", "8"]} w="100%">
               <Input name="password" type="password" label="Senha" />
               <Input
                 name="password_confirmation"
@@ -46,7 +47,9 @@ export default function UserCreate() {
           </VStack>
           <Flex mt="8" justify="flex-end">
             <HStack spacing="4">
-              <Button colorScheme="whiteAlpha">Cancelar</Button>
+              <Link href='/users' passHref>
+                <Button colorScheme="whiteAlpha">Cancelar</Button>
+              </Link>
               <Button colorScheme="pink">Salvar</Button>
             </HStack>
           </Flex>
