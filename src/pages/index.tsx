@@ -1,11 +1,21 @@
 import {Flex, Button,Stack} from '@chakra-ui/react'
-import {useForm} from 'react-hook-form'
+import { useForm, SubmitHandler } from "react-hook-form"
 import {Input} from '../components/Form/Input'
+
+type SignInFormValue={
+email: string;
+password: string;
+}
+
 export default function SignIn () {
-  const {register,handleSubmit}= useForm()  
-  function handleSignIn(value){ // para lidar com o registro de usuario
-   console.log(value)
+
+  const { register, handleSubmit, formState } = useForm<SignInFormValue>()  
+
+  const handleSignIn: SubmitHandler<SignInFormValue> = async (value, event)=> { // para lidar com o registro de usuario
+    await new Promise(resolve => setTimeout(resolve, 2000) ) //fica status carregando no botão
+   console.log(value) 
   }
+
  return (
    <Flex w="100vw" h="100vh" align="center" justify="center">
      <Flex
@@ -24,7 +34,11 @@ export default function SignIn () {
          <Input type="password" label="Password" {...register("password")}
          />
        </Stack>
-       <Button type="submit" mt="6" colorScheme="pink" size="lg">
+       <Button type="submit" mt="6" 
+       colorScheme="pink" 
+       size="lg"
+       isLoading={formState.isSubmitting} //está carregando ve o estado do botão se está enviando dados
+       >
          Entrar
        </Button>
      </Flex>
