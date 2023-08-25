@@ -1,5 +1,7 @@
 import {Flex, Button,Stack} from '@chakra-ui/react'
-import { useForm, SubmitHandler } from "react-hook-form"
+import { useForm, SubmitHandler, FieldError } from "react-hook-form"
+import * as yup from 'yup';
+import {yupResolver} from '@hookform/resolvers/yup'
 import {Input} from '../components/Form/Input'
 
 type SignInFormValue={
@@ -7,21 +9,29 @@ email: string;
 password: string;
 }
 
+const signInFormSchema = yup.object().shape({
+  email: yup.string().required().email(),
+  password: yup.string().required(),
+})
+
 export default function SignIn () {
 
-  const { register, handleSubmit, formState } = useForm<SignInFormValue>()  
+  const { register, handleSubmit, formState } = useForm<SignInFormValue>({
+    resolver: yupResolver(signInFormSchema  )
+  })  
 
   const handleSignIn: SubmitHandler<SignInFormValue> = async (value, event)=> { // para lidar com o registro de usuario
     await new Promise(resolve => setTimeout(resolve, 2000) ) //fica status carregando no botão
    console.log(value) 
   }
 
-  const handleInputError = () => {
-    return formState.errors.email?.message || "" // Ajuste de acordo com a estrutura do objeto de erro
-  }
+  const handleInputError = () => { // colocar mensagem de obrigação
+    return formState.errors.email
+  } //colocar mensagem de erro
   const handleInputErrorPassword = () => {
-    return formState.errors.password?.message || "" // Ajuste de acordo com a estrutura do objeto de erro
+    return formState.errors.password
   }
+
 
  return (
    <Flex w="100vw" h="100vh" align="center" justify="center">
@@ -39,14 +49,14 @@ export default function SignIn () {
          <Input
            type="email"
            label="E-mail"
-           error={handleInputError()}
-           {...register("email", { required: "email obrigatório" })} //aqui é para não deixar logar sem obrigatoriamente preencher os campos
+           error={handleInputError()} //função da msg de erro
+           {...register("email")} //aqui é para não deixar logar sem obrigatoriamente preencher os campos
          />
          <Input
            type="password"
            label="Password"
-           error={handleInputErrorPassword()}
-           {...register("password", { required: "password obrigatória" })}
+           error={handleInputErrorPassword()} //função da msg de erro
+           {...register("password")}
          />
        </Stack>
        <Button
