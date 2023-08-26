@@ -10,19 +10,19 @@ password: string;
 }
 
 const signInFormSchema = yup.object().shape({
-  email: yup.string().required().email(),
+  email: yup.string().required().email('Invalid Email'),
   password: yup.string().required(),
 })
 
 export default function SignIn () {
 
   const { register, handleSubmit, formState } = useForm<SignInFormValue>({
-    resolver: yupResolver(signInFormSchema  )
+    resolver: yupResolver(signInFormSchema)
   })  
 
   const handleSignIn: SubmitHandler<SignInFormValue> = async (value, event)=> { // para lidar com o registro de usuario
     await new Promise(resolve => setTimeout(resolve, 2000) ) //fica status carregando no botão
-   console.log(value) 
+   
   }
 
   const handleInputError = () => { // colocar mensagem de obrigação
