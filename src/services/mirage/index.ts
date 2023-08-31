@@ -16,6 +16,8 @@ export function makeServer(){
 
   this.get('/users'); //shortHands mirage, chama a lista completa de usuarios do Model
   this.post('/users') //cria um usuário
+
+  this.namespace = '' //para não atrapalhar as outras rotas de outras apis depois q acaba de voltar as users
   }
  })
 
