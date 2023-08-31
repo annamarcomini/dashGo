@@ -13,6 +13,7 @@ export function makeServer(){
   },
   routes(){
    this.namespace = 'api' //padrão para chamar a api- /api/....
+   this.timing= 750;
 
   this.get('/users'); //shortHands mirage, chama a lista completa de usuarios do Model
   this.post('/users') //cria um usuário
