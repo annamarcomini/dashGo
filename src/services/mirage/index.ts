@@ -19,6 +19,7 @@ export function makeServer(){
   this.post('/users') //cria um usuário
 
   this.namespace = '' //para não atrapalhar as outras rotas de outras apis depois q acaba de voltar as users
+  this.passthrough() //para que as outras rotas que não são do mirage passem a diante 
   }
  })
 
