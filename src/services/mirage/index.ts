@@ -1,10 +1,12 @@
 import {createServer, Factory, Model} from  'miragejs'
+import {faker} from "@faker-js/faker"
 
 type User = {
 name: string;
 email: string;
 created_at: string;
 };
+
 
 export function makeServer(){
  const server  = createServer({
@@ -21,13 +23,13 @@ export function makeServer(){
    return faker.internet.email()
    },
    createdAt(){
-
+   return faker.date.recent(10)
    },
   })
   },  //gerar dados em massa
 
   seeds( server){
-
+  server.createList('user',200) //cria 200 ussuarios
   },
 
   routes(){

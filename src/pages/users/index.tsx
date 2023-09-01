@@ -19,6 +19,7 @@ import {
 import { RiAddLine, RiPencilLine } from "react-icons/ri";
 import { Pagination } from "@/components/Form/Pagination";
 import Link from "next/link";
+import { useEffect } from "react";
 
 
 
@@ -27,6 +28,13 @@ export default function UserList() {
  base:false,
  lg: true,
 })
+
+useEffect(()=> {
+fetch("http://localhost:3001/api/users")
+.then(response => response.json())
+.then(data=> console.log(data))
+}, []) 
+
  return (
    <Box>
      <Header />
