@@ -30,6 +30,8 @@
     "yup": "^1.2.0"
   },
   "devDependencies": {
+    "@types/faker": "^6.6.9",
+    "faker": "^6.6.6",
     "miragejs": "^0.1.47"
   }
 }

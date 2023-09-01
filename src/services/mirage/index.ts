@@ -1,4 +1,4 @@
-import {createServer, Model} from  'miragejs'
+import {createServer, Factory, Model} from  'miragejs'
 
 type User = {
 name: string;
@@ -11,6 +11,25 @@ export function makeServer(){
   models: {
   user: Model.extend<Partial<User>>({}) //casos que talvez não vai ter obrigatório ter tds os tipo
   },
+  
+  factories: { 
+  user: Factory.extend({
+   name(i: number){
+   return `User ${i+1}`
+   },
+   email(){
+   return faker.internet.email()
+   },
+   createdAt(){
+
+   },
+  })
+  },  //gerar dados em massa
+
+  seeds( server){
+
+  },
+
   routes(){
    this.namespace = 'api' //padrão para chamar a api- /api/....
    this.timing= 750;
