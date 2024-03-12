@@ -15,7 +15,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 ## 💻 Projeto
 
-O DashGo foi desenvolvido para ser um exibidor de usuários inscritos, onde é possível ver todos eles em uma listagem e a taxa de inscrição por mês em um dashboard.
+O DashGo foi desenvolvido para ser um exibidor de usuários inscritos, onde é possível ver todos eles em uma listagem e a taxa de inscrição semanal em um dashboard.
 
 ## 🔖 Como executar em sua máquina
 - Baixe o código
