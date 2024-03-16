@@ -19,6 +19,7 @@ O DashGo foi desenvolvido para ser um exibidor de usuários inscritos, onde é p
 
 ## 🔖 Como executar em sua máquina
 - Baixe o código
+- Execute o comando Yarn
 - Execute o comando Yarn Dev
   
 ![Captura de tela 2024-03-06 222457](https://github.com/annamarcomini/dashGo/assets/116853315/9f9daab0-b665-440e-b0d6-a6ca5b26c386)
